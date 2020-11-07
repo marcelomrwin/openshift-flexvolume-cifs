@@ -34,6 +34,11 @@ objects:
           volumeMounts:
             - name: cifs
               mountPath: /mnt/cifs
+          env:
+           - name: NAMESPACE
+             valueFrom:
+               fieldRef:
+                 fieldPath: metadata.namespace
         volumes:
           - name: cifs
             flexVolume:
@@ -42,7 +47,7 @@ objects:
               secretRef:
                 name: ${SECRET}
               options:
-                networkPath: "${NETWORK_PATH}"
+                networkPath: "${NETWORK_PATH}/${PREFIX}-${NAME}"
                 mountOptions: "${MOUNT_OPTIONS}"
     triggers:
     - type: ConfigChange
@@ -67,6 +72,11 @@ parameters:
   name: NETWORK_PATH
   required: true
   value: "//172.19.0.169/okdworker"
+- description: Prefix for path to the CIFS mount.
+  displayName: Prefix
+  name: PREFIX
+  required: true
+  value: "dev"  
 - description: CIFS mount options.
   displayName: Mount Options
   name: MOUNT_OPTIONS
