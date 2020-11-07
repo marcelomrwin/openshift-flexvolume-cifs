@@ -7,7 +7,7 @@
     driver_name: cifs
     driver_location: "{{ playbook_dir }}/../flexvolume-driver/cifs"
     volume_plugin_path: "/usr/libexec/kubernetes/kubelet-plugins/volume/exec"
-    openshift_node_service: atomic-openshift-node
+    openshift_node_service: origin-node
     install_packages:
       - cifs-utils
   tasks:

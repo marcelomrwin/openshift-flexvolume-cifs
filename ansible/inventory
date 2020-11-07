@@ -1,5 +1,11 @@
 [nodes]
-# Insert OpenShift where the driver should be supported to run on
-
+dlokdmaster01.okd.inpi.gov.br
+dlokdmaster02.okd.inpi.gov.br
+dlokdmaster03.okd.inpi.gov.br
+dlokdinfra01.okd.inpi.gov.br
+dlokdinfra02.okd.inpi.gov.br
+dlokdworker01.okd.inpi.gov.br
+dlokdworker02.okd.inpi.gov.br
 [nodes:vars]
 ansible_become=true
+ansible_ssh_user=disis
